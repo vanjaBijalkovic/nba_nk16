@@ -9,7 +9,7 @@ class TeamController extends Controller
 {
     public function index() 
     {
-        $team = Team::all();
+        $teams = Team::all();
 
         return view('teams.index', compact('teams'));
     }
@@ -17,7 +17,6 @@ class TeamController extends Controller
     public function show($id) 
     {
         $team = Team::with('players')->findOrFail($id);
-
         return view('teams.show', compact('team'));
     }
 }
